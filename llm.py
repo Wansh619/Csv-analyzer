@@ -1,6 +1,11 @@
 import ollama
 import json
 from models import PlotResponse,ModelResponse,QueryResponse,TextResponse
+from pydantic_ai import Agent,capture_run_messages,UnexpectedModelBehavior,RunContext
+from pydantic_ai.models.openai import OpenAIModel
+from pydantic_ai.providers.openai import OpenAIProvider
+from pydantic_ai.exceptions import UsageLimitExceeded
+from pydantic_ai.usage import UsageLimits
 from pydantic import  ValidationError
 import pandas as pd
 class CSVAnalysisModel:
